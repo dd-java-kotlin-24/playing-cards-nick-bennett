@@ -1,8 +1,16 @@
+@file:Suppress("ReplaceJavaStaticMethodWithKotlinAnalog")
+
 package edu.cnm.deepdive.cards.model
+
+import java.util.Collections
+import java.util.random.RandomGenerator
 
 class Deck {
 
     private val cards: MutableList<Card>
+
+    val isEmpty: Boolean
+        get() = cards.isEmpty()
 
     init {
         cards = mutableListOf()
@@ -13,4 +21,9 @@ class Deck {
         }
     }
 
+    fun shuffle(rng: RandomGenerator) {
+        Collections.shuffle(cards, rng)
+    }
+
+    fun draw(): Card = cards.removeFirst()
 }
