@@ -2,18 +2,16 @@
 
 package edu.cnm.deepdive.cards.model
 
-import java.util.Collections
-import java.util.random.RandomGenerator
+import kotlin.random.Random
 
 class Deck {
 
-    private val cards: MutableList<Card>
+    private val cards: MutableList<Card> = mutableListOf()
 
     val isEmpty: Boolean
         get() = cards.isEmpty()
 
     init {
-        cards = mutableListOf()
         for (suit in Suit.entries) {
             for (rank in Rank.entries) {
                 cards += Card(rank, suit)
@@ -21,8 +19,12 @@ class Deck {
         }
     }
 
-    fun shuffle(rng: RandomGenerator) {
-        Collections.shuffle(cards, rng)
+    fun shuffle(rng: Random? = null) {
+        if (rng == null) {
+            cards.shuffle()
+        } else {
+            cards.shuffle(rng)
+        }
     }
 
     fun draw(): Card = cards.removeFirst()

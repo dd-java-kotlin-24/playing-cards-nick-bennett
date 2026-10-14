@@ -20,8 +20,8 @@ public enum Suit {
 
   @Override
   public String toString() {
-//    return abbreviation;
-    return name();
+    return abbreviation;
+//    return name();
   }
 
   public String abbreviation() {

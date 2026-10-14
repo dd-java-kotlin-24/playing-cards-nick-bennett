@@ -3,11 +3,11 @@ package edu.cnm.deepdive.cards.games
 import edu.cnm.deepdive.cards.model.Card
 import edu.cnm.deepdive.cards.model.Deck
 import edu.cnm.deepdive.cards.model.Suit
-import java.util.Collections
-import java.util.random.RandomGenerator
+import java.util.*
 import kotlin.math.min
+import kotlin.random.Random
 
-class Trick(val rng: RandomGenerator? = null) {
+class Trick(val rng: Random? = null) {
 
     private val _redPile: MutableList<Card> = mutableListOf()
     val redPile: List<Card>
