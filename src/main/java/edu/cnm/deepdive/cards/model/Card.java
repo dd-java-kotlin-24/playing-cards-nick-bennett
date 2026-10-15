@@ -22,7 +22,7 @@ public record Card(Rank rank, Suit suit) implements Comparable<Card> {
 
   @Override
   public @NonNull String toString() {
-    return "%s %s".formatted(rank, suit);
+    return "%s%s".formatted(rank, suit);
   }
 
 }
